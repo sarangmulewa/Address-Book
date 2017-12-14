@@ -1,0 +1,28 @@
+
+<form action="/address/getdata/" method="post">
+{% csrf_token %}
+
+Name: <input type="text" name="name" required/><br><br>
+
+Phone: <input type="text" name="phone" required/><br><br>
+
+<input type="submit"  value="Add" /><br>
+
+</form>
+
+<table style=" border: 1px solid black;">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Phone Number</th>
+    </tr>
+    {% for item in data %}
+    <tr>
+        <td>{{item.id }}</td>
+        <td>{{item.name }}</td>
+        <td>{{item.phone }}</td>
+        <td ><a href="{% url 'deletedata' id=item.id %}" style="text-decoration: none" >Delete</a></td>
+    <td><a href="{% url 'updatedata' id=item.id %}" style="text-decoration: none" >Edit</a></td>
+    </tr>
+    {% endfor %}
+</table>

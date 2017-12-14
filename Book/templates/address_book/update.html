@@ -1,0 +1,10 @@
+<form action="" method="POST">
+{% csrf_token %}
+
+Name: <input type="text" name="name" value= "  {{data.name}}" /><br><br>
+
+Phone: <input type="text" name="phone" value= "  {{data.phone}}" /><br><br>
+
+<input type="submit"  value="Update" /><br>
+
+</form>
